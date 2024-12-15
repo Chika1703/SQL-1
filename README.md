@@ -13,14 +13,11 @@ SELECT district FROM address WHERE (district LIKE 'K%a' AND district NOT LIKE '%
 
 
 ### Задание 2
-```
-SELECT * FROM payment WHERE (CAST(payment_date AS DATE) BETWEEN '2005-06-15' AND '2005-08-18') AND amount > 10;
-```
 Получите из таблицы платежей за прокат фильмов информацию по платежам, которые выполнялись в промежуток с 15 июня 2005 года по 18 июня 2005 года **включительно** и стоимость которых превышает 10.00.
 
 **Решение**
 ```
-SELECT * FROM payment ORDER BY payment_date DESC LIMIT 5;
+SELECT * FROM payment WHERE (CAST(payment_date AS DATE) BETWEEN '2005-06-15' AND '2005-08-18') AND amount > 10;
 ```
 ![image 2](png/2.jpg)
 
@@ -29,7 +26,9 @@ SELECT * FROM payment ORDER BY payment_date DESC LIMIT 5;
 Получите последние пять аренд фильмов.
 
 **Решение**
-
+```
+SELECT * FROM payment ORDER BY payment_date DESC LIMIT 5;
+```
 ![image 2](png/3.jpg)
 
 ### Задание 4

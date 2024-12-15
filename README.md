@@ -5,27 +5,32 @@
 Получите уникальные названия районов из таблицы с адресами, которые начинаются на “K” и заканчиваются на “a” и не содержат пробелов.
 
 **Решение**
+```
+SELECT district FROM address WHERE (district LIKE 'K%a' AND district NOT LIKE '% %');
+```
 ![image 2](png/1.jpg)
 
 
 
 ### Задание 2
-
+```
+SELECT * FROM payment WHERE (CAST(payment_date AS DATE) BETWEEN '2005-06-15' AND '2005-08-18') AND amount > 10;
+```
 Получите из таблицы платежей за прокат фильмов информацию по платежам, которые выполнялись в промежуток с 15 июня 2005 года по 18 июня 2005 года **включительно** и стоимость которых превышает 10.00.
 
 **Решение**
+```
+SELECT * FROM payment ORDER BY payment_date DESC LIMIT 5;
+```
 ![image 2](png/2.jpg)
-
-
 
 ### Задание 3
 
 Получите последние пять аренд фильмов.
 
 **Решение**
+
 ![image 2](png/3.jpg)
-
-
 
 ### Задание 4
 
@@ -36,6 +41,9 @@
 - замените буквы 'll' в именах на 'pp'.
 
 **Решение**
+```
+SELECT LOWER(REPLACE(first_name, 'll', 'pp')) AS modified_first_name, LOWER(last_name) AS modified_last_name FROM customer WHERE active > 0 AND (first_name = 'Kelly' OR first_name = 'Willie');
+```
 ![image 2](png/4.jpg)
 
 
